@@ -1,0 +1,32 @@
+
+<mat-grid-list cols="6" rowHeight="100px" gutterSize="24px">
+  <mat-grid-tile
+    colspan=1
+    rowspan=5
+  >
+    <app-sidebar style="width: 100%; height: 100%;"></app-sidebar>
+  </mat-grid-tile>  
+
+  <mat-grid-tile
+      colspan=3
+      rowspan=5
+  >
+    <app-grade-horaria style="width: 100%; height: 100%;"></app-grade-horaria>
+  </mat-grid-tile>  
+
+  <mat-grid-tile
+      colspan=2
+      rowspan=5
+  >
+    <div class="comunicados">
+      <h2>Comunicados</h2>
+      @for (item of estilosConfigComunicados; track $index) {
+        <app-comunicado
+          [titulo]="item.titulo"
+          [descricao]="item.descricao"
+          style="width: 100%; height: auto;"
+        ></app-comunicado> 
+      }
+    </div>
+  </mat-grid-tile>  
+</mat-grid-list>

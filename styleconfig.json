@@ -1,0 +1,315 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "athenados": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/athenados",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "@angular/material/prebuilt-themes/cyan-orange.css",
+              "src/styles.scss"
+            ],
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "src/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "athenados:build:production"
+            },
+            "development": {
+              "buildTarget": "athenados:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": ["zone.js", "zone.js/testing"],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "@angular/material/prebuilt-themes/cyan-orange.css",
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "307af3b1-4f33-414c-bb65-ed2b86c5b560"
+  },
+  "sidebar": {
+    "nome": "Ilan Sosua",
+    "email": "ilan_email@gmail.com",
+    "dataNascimento": "24/03/2005",
+    "turno": "Noturno",
+    "estudarHoje": ["Matemática", "Português", "História"],
+    "presenca": "93%"
+  },
+  "gradeNoturno": {
+    "segunda": [
+      "Matemática Básica - Carlos",
+      "Matemática Básica - Carlos",
+      "Literatura - Ana",
+      "História Geral - Marcelo",
+      "Química - Renata"
+    ],
+    "terca": [
+      "Gramática - Fernanda",
+      "Redação - Fernanda",
+      "Física - Rodrigo",
+      "Geografia - André",
+      "Biologia - Juliana"
+    ],
+    "quarta": [
+      "Álgebra - Carlos",
+      "Álgebra - Carlos",
+      "História do Brasil - Marcelo",
+      "Inglês - Carla",
+      "Química Orgânica - Renata"
+    ],
+    "quinta": [
+      "Geometria - Luiz",
+      "Física Moderna - Rodrigo",
+      "Interpretação Textual - Ana",
+      "Sociologia - Patrícia",
+      "Biologia Celular - Juliana"
+    ],
+    "sexta": [
+      "Redação - Fernanda",
+      "Atualidades - André",
+      "Matemática - Carlos",
+      "Física - Rodrigo"
+    ]
+  },
+  "gradeVespertino": {
+    "segunda": [
+      "Matemática Básica - Gustavo",
+      "Literatura - Beatriz",
+      "História Geral - Fábio",
+      "Química - Tiago",
+      "Química - Tiago",
+      "Biologia - Marina"
+    ],
+    "terca": [
+      "Gramática - Luciana",
+      "Redação - Luciana",
+      "Física - Rafael",
+      "Geografia - Diego",
+      "Geografia - Diego",
+      "Exercícios de Matemática - Gustavo"
+    ],
+    "quarta": [
+      "Álgebra - Gustavo",
+      "Álgebra - Gustavo",
+      "História do Brasil - Fábio",
+      "Inglês - Carolina",
+      "Química Orgânica - Tiago",
+      "Biologia - Marina"
+    ],
+    "quinta": [
+      "Geometria - Luiz",
+      "Física - Rafael",
+      "Física - Rafael",
+      "Interpretação Textual - Beatriz",
+      "Sociologia - Patrícia",
+      "Atualidades - Diego"
+    ],
+    "sexta": [
+      "Redação - Luciana",
+      "Matemática - Gustavo",
+      "História Geral - Fábio",
+      "Biologia - Marina",
+      "Física - Rafael"
+    ]
+  },
+  "Comunicados": [
+    {
+      "titulo": "Festa Junina do cursinho",
+      "descricao": "No dia 29 de junho, último dia de aula, teremos uma festa junina para celebrar o fim do semestre. Tragam comidas típicas e venham se divertir!"
+    },
+    {
+      "titulo": "Não haverá aula na próxima segunda-feira",
+      "descricao": "Devido ao feriado, não haverá aula na próxima segunda-feira. Aproveitem o dia para descansar e estudar."
+    },
+    {
+      "titulo": "Alterações da Grade",
+      "descricao": "Devido a motivos pessoais de alguns professores, a grade de aulas foi atualizada. Verifiquem os novos horários e professores."
+    },
+    {
+      "titulo": "Simulado Enem",
+      "descricao": "Próximo sábado, dia 24/06, teremos um simulado do Enem. A participação é obrigatória e será contabilizada presença."
+    }
+  ],
+  "$schmaema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "versisson": 1,
+  "newPrrrojectRoot": "projects",
+  "projjjects": {
+    "athenados": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/athenados",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "@angular/material/prebuilt-themes/cyan-orange.css",
+              "src/styles.scss"
+            ],
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "src/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "athenados:build:production"
+            },
+            "development": {
+              "buildTarget": "athenados:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": ["zone.js", "zone.js/testing"],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "@angular/material/prebuilt-themes/cyan-orange.css",
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "ccli": {
+    "analytics": "307af3b1-4f33-414c-bb65-ed2b86c5b560"
+  }
+}

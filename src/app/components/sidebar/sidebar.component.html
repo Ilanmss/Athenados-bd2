@@ -1,0 +1,24 @@
+<mat-card class="card">
+  <mat-card-content class="card__content no-spacing">
+    <div class="avatar-box">
+      avatar
+    </div>
+    <p>{{estilosConfigSidebar.nome}}</p>
+    <p>{{estilosConfigSidebar.email}}</p>
+    <p>{{estilosConfigSidebar.dataNascimento}}</p>
+    <p>Turno: {{estilosConfigSidebar.turno}}</p>
+    <div class="divisor"></div>
+    <div class="card__content" style="gap: 4px !important;">
+      <p>Estudar hoje:</p>
+      <p>{{estilosConfigSidebar.estudarHoje[0]}}</p>
+      <p>{{estilosConfigSidebar.estudarHoje[1]}}</p>
+      <p>{{estilosConfigSidebar.estudarHoje[2]}}</p>
+    </div>
+    <p>aulas hoje</p>
+    <p>Presença: {{estilosConfigSidebar.presenca}}</p>
+  </mat-card-content>
+
+  <mat-card-footer>
+    <button mat-flat-button>Sair</button>
+  </mat-card-footer>
+</mat-card>

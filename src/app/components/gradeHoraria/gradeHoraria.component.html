@@ -1,0 +1,44 @@
+<mat-card class="card">
+  <mat-card-content >
+    <mat-tab-group>
+      <mat-tab label="Vespertino"> 
+        <table>
+            <tr>
+              @for( coluna of colunas; track $index) {
+                <th > {{coluna}} </th>
+              } 
+            </tr>
+            @for(hora of horariosVesp; track $index) {
+              <tr>
+                <td>{{horariosVesp[$index]}}</td>
+                <td>{{estilosConfigVesp.segunda[$index]}}</td>
+                <td>{{estilosConfigVesp.terca[$index]}}</td>
+                <td>{{estilosConfigVesp.quarta[$index]}}</td>
+                <td>{{estilosConfigVesp.quinta[$index]}}</td>
+                <td>{{estilosConfigVesp.sexta[$index]}}</td>
+              </tr>
+            }
+        </table>
+      </mat-tab>
+      <mat-tab label="Noturno"> 
+        <table>
+            <tr>
+              @for( coluna of colunas; track $index) {
+                <th > {{coluna}} </th>
+              } 
+            </tr>
+            @for(hora of horariosNot; track $index) {
+              <tr>
+                <td>{{horariosNot[$index]}}</td>
+                <td>{{estilosConfigNot.segunda[$index]}}</td>
+                <td>{{estilosConfigNot.terca[$index]}}</td>
+                <td>{{estilosConfigNot.quarta[$index]}}</td>
+                <td>{{estilosConfigNot.quinta[$index]}}</td>
+                <td>{{estilosConfigNot.sexta[$index]}}</td>
+              </tr>
+            }
+        </table>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>
